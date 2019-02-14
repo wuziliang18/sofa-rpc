@@ -31,7 +31,7 @@ import com.alipay.sofa.rpc.listener.ProviderInfoListener;
 import javax.annotation.concurrent.ThreadSafe;
 
 /**
- * 客户端，封装了集群模式、长连接管理、服务路由、负载均衡等抽象类
+ * 客户端，封装了集群模式、长连接管理、服务路由、负载均衡等抽象类  wuzl应该是接口级别的
  *
  * @author <a href=mailto:zhanggeng.zg@antfin.com>GengZhang</a>
  */

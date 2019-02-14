@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * 使用wait 来实行超时等待 
  * @author <a href="mailto:zhanggeng.zg@antfin.com">GengZhang</a>
  * @since 5.4.0
  */
@@ -165,7 +166,7 @@ public abstract class AbstractResponseFuture<V> implements ResponseFuture<V> {
             }
         }
     }
-
+    //不用修饰吗? 线程安全能保证 可见性?
     private short waiters;
 
     private boolean hasWaiters() {

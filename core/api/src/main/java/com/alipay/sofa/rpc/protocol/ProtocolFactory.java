@@ -125,7 +125,7 @@ public class ProtocolFactory {
 
     /**
      * 注册协议到适配协议
-     *
+     * 只这里加锁不对吧
      * @param protocolInfo 协议描述信息
      */
     protected static synchronized void registerAdaptiveProtocol(ProtocolInfo protocolInfo) {

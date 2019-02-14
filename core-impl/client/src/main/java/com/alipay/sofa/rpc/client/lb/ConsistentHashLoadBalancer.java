@@ -62,7 +62,7 @@ public class ConsistentHashLoadBalancer extends AbstractLoadBalancer {
         Selector selector = selectorCache.get(key);
         if (selector == null // 原来没有
             ||
-            selector.getHashCode() != hashcode) { // 或者服务列表已经变化
+            selector.getHashCode() != hashcode) { // 或者服务列表已经变化 wuzl之前还担心服务提供者变化了怎么办这里有处理
             selector = new Selector(interfaceId, method, providerInfos, hashcode);
             selectorCache.put(key, selector);
         }

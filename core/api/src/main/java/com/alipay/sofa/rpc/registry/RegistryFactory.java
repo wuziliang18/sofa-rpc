@@ -50,12 +50,13 @@ public class RegistryFactory {
 
     /**
      * 得到注册中心对象
-     *
+     * wuzl还以为会有并发问题 发现直接加锁了 感觉此处不必要加锁 加载用的也少 加锁对性能也没啥影响 
+     * ++后来想了下 还是有道理的 注册中心生成比较耗时 如果冲突还需要关闭而这个只初始化一次所以加锁是正确的
      * @param registryConfig RegistryConfig类
      * @return Registry实现
      */
     public static synchronized Registry getRegistry(RegistryConfig registryConfig) {
-        if (ALL_REGISTRIES.size() > 3) { // 超过3次 是不是配错了？
+        if (ALL_REGISTRIES.size() > 3) { // 超过3次 是不是配错了？ wuzl不知道前边谁写的注释 感觉没啥问题呀
             if (LOGGER.isWarnEnabled()) {
                 LOGGER.warn("Size of registry is greater than 3, Please check it!");
             }

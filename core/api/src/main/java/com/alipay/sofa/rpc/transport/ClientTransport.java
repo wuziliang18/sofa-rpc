@@ -79,7 +79,7 @@ public abstract class ClientTransport {
 
     /**
      * 设置长连接
-     *
+     * wuzl是不是只是用来设置服务端到客户端的虚拟连接 
      * @param channel the channel
      */
     public abstract void setChannel(AbstractChannel channel);

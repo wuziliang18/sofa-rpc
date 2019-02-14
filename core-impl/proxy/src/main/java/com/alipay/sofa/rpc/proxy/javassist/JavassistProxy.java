@@ -120,7 +120,7 @@ public class JavassistProxy implements Proxy {
                 PROXY_CLASS_MAP.put(interfaceClass, clazz);
             }
             Object instance = clazz.newInstance();
-            clazz.getField("proxyInvoker").set(instance, proxyInvoker);
+            clazz.getField("proxyInvoker").set(instance, proxyInvoker);//invoker当做一个参数保存
             return (T) instance;
         } catch (Exception e) {
             if (LOGGER.isDebugEnabled()) {

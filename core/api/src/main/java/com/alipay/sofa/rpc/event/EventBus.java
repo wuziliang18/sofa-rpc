@@ -133,6 +133,7 @@ public class EventBus {
                                         RpcInternalContext.setContext(context);
                                         handleEvent(subscriber, event);
                                     } catch (Exception e) {
+                                    	//不太明白为啥只有在异常的时候删除 感觉应该在finally里面删除才对 而且此处应该是不会进来的
                                         RpcInternalContext.removeContext();
                                     }
                                 }

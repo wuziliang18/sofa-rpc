@@ -28,7 +28,7 @@ import java.util.List;
 
 /**
  * Registry SPI
- *
+ *不是单例是因为多注册中心 需要自己维护注册对象wuzl
  * @author <a href=mailto:zhanggeng.zg@antfin.com>GengZhang</a>
  */
 @Extensible(singleton = false)

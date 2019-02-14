@@ -50,6 +50,7 @@ public class NotReusableClientTransportHolder implements ClientTransportHolder {
                 .getExtension(config.getContainer(),
                     new Class[] { ClientTransportConfig.class },
                     new Object[] { config });
+            //wuzl 疑问 config没有重写hashcode和equals 难道config一直是唯一对象吗
             ClientTransport old = allTransports.putIfAbsent(config, transport); // 保存唯一长连接
             if (old != null) {
                 if (LOGGER.isWarnEnabled()) {

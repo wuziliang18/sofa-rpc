@@ -22,32 +22,36 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * <p>服务端通讯层工厂类</p>
+ * <p>
+ * 服务端通讯层工厂类
+ * </p>
  *
  * @author <a href=mailto:zhanggeng.zg@antfin.com>GengZhang</a>
  */
 public class ServerTransportFactory {
 
-    /**
-     * 保留了 端口 和 服务通讯层
-     */
-    public static final Map<String, ServerTransport> SERVER_TRANSPORT_MAP = new ConcurrentHashMap<String, ServerTransport>();
+	/**
+	 * 保留了 端口 和 服务通讯层  
+	 * -- wuzl不明白为什么只缓存 而不获取
+	 * 
+	 */
+	public static final Map<String, ServerTransport> SERVER_TRANSPORT_MAP = new ConcurrentHashMap<String, ServerTransport>();
 
-    /**
-     * Get ServerTransport
-     *
-     * @param serverConfig ServerTransportConfig
-     * @return ServerTransport
-     */
-    public static ServerTransport getServerTransport(ServerTransportConfig serverConfig) {
-        ServerTransport serverTransport = ExtensionLoaderFactory.getExtensionLoader(ServerTransport.class)
-            .getExtension(serverConfig.getContainer(),
-                new Class[] { ServerTransportConfig.class },
-                new Object[] { serverConfig });
-        if (serverTransport != null) {
-            String key = Integer.toString(serverConfig.getPort());
-            SERVER_TRANSPORT_MAP.put(key, serverTransport);
-        }
-        return serverTransport;
-    }
+	/**
+	 * Get ServerTransport
+	 *
+	 * @param serverConfig
+	 *            ServerTransportConfig
+	 * @return ServerTransport
+	 */
+	public static ServerTransport getServerTransport(ServerTransportConfig serverConfig) {
+		ServerTransport serverTransport = ExtensionLoaderFactory.getExtensionLoader(ServerTransport.class).getExtension(
+				serverConfig.getContainer(), new Class[] { ServerTransportConfig.class },
+				new Object[] { serverConfig });
+		if (serverTransport != null) {
+			String key = Integer.toString(serverConfig.getPort());
+			SERVER_TRANSPORT_MAP.put(key, serverTransport);
+		}
+		return serverTransport;
+	}
 }

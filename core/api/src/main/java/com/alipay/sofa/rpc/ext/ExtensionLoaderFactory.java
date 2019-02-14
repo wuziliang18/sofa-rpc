@@ -35,7 +35,7 @@ public class ExtensionLoaderFactory {
 
     /**
      * Get extension loader by extensible class with listener
-     *
+     * 感觉这么用有点危险 要是多个地方都去调用 且listener不为空 就会有问题 个人的做法会在单例后如果存在重新触发listener
      * @param clazz    Extensible class
      * @param listener Listener of ExtensionLoader
      * @param <T>      Class

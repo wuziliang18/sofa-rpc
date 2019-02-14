@@ -60,7 +60,7 @@ public class ClientProxyInvoker implements Invoker {
 
     /**
      * proxy拦截的调用
-     *
+     * 涉及到context的前后切换
      * @param request 请求消息
      * @return 调用结果
      */

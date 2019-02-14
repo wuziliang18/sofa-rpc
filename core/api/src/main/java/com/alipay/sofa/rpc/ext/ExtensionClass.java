@@ -24,7 +24,7 @@ import java.util.Arrays;
 
 /**
  * 扩展接口实现类
- *
+ * 就是扩展实现的一个包装方便其他地方使用
  * @param <T> the type parameter
  * @author <a href=mailto:zhanggeng.zg@antfin.com>GengZhang</a>
  * @see Extension
